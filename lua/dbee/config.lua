@@ -344,26 +344,24 @@ config.default = {
 ---@package
 ---@param cfg Config
 function config.validate(cfg)
-  vim.validate {
-    sources = { cfg.sources, "table" },
-    extra_helpers = { cfg.extra_helpers, "table" },
-    float_options = { cfg.float_options, "table" },
+  vim.validate("sources", cfg.sources, "table")
+  vim.validate("extra_helpers", cfg.extra_helpers, "table")
+  vim.validate("float_options", cfg.float_options, "table")
 
-    drawer_disable_candies = { cfg.drawer.disable_candies, "boolean" },
-    drawer_disable_help = { cfg.drawer.disable_help, "boolean" },
-    drawer_candies = { cfg.drawer.candies, "table" },
-    drawer_mappings = { cfg.drawer.mappings, "table" },
-    result_page_size = { cfg.result.page_size, "number" },
-    result_progress = { cfg.result.progress, "table" },
-    result_mappings = { cfg.result.mappings, "table" },
-    editor_mappings = { cfg.editor.mappings, "table" },
-    call_log_mappings = { cfg.call_log.mappings, "table" },
+  vim.validate("drawer_disable_candies", cfg.drawer.disable_candies, "boolean")
+  vim.validate("drawer_disable_help", cfg.drawer.disable_help, "boolean")
+  vim.validate("drawer_candies", cfg.drawer.candies, "table")
+  vim.validate("drawer_mappings", cfg.drawer.mappings, "table")
+  vim.validate("result_page_size", cfg.result.page_size, "number")
+  vim.validate("result_progress", cfg.result.progress, "table")
+  vim.validate("result_mappings", cfg.result.mappings, "table")
+  vim.validate("editor_mappings", cfg.editor.mappings, "table")
+  vim.validate("call_log_mappings", cfg.call_log.mappings, "table")
 
-    window_layout = { cfg.window_layout, "table" },
-    window_layout_open = { cfg.window_layout.open, "function" },
-    window_layout_is_open = { cfg.window_layout.is_open, "function" },
-    window_layout_close = { cfg.window_layout.close, "function" },
-  }
+  vim.validate("window_layout", cfg.window_layout, "table")
+  vim.validate("window_layout_open", cfg.window_layout.open, "function")
+  vim.validate("window_layout_is_open", cfg.window_layout.is_open, "function")
+  vim.validate("window_layout_close", cfg.window_layout.close, "function")
 end
 
 -- Merges changes from config on top of default config.
